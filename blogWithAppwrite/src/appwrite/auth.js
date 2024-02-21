@@ -19,7 +19,7 @@ export class AuthService {
       );
       if (userAccount) {
         //call another method
-        return this.login({email,password})
+        return this.login({ email, password });
       } else {
         return userAccount;
       }
@@ -27,26 +27,26 @@ export class AuthService {
       throw err;
     }
   }
-  async login ({email,password}){
+  async login({ email, password }) {
     try {
-  return await this.account.createEmailSession(email,password)
+      return await this.account.createEmailSession(email, password);
     } catch (error) {
-        throw error
+      throw error;
     }
   }
-  async getCurrentUser(){
+  async getCurrentUser() {
     try {
-        await this.account.get()
+      await this.account.get();
     } catch (error) {
-        throw error
+      throw error;
     }
-    return null
+    return null;
   }
-  async logout(){
+  async logout() {
     try {
-        await this.account.deleteSessions();
+      await this.account.deleteSessions();
     } catch (error) {
-        throw error
+      throw error;
     }
   }
 }
